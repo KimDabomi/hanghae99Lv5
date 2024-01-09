@@ -24,8 +24,8 @@ public class CartItem {
     @Column(name = "quantity")
     private int quantity;
 
-    public CartItem(CartItemRequestDto requestDto, Goods goods) {
-        this.cart = requestDto.getCart();
+    public CartItem(CartItemRequestDto requestDto, Goods goods, Cart cart) {
+        this.cart = cart;
         this.goods = goods;
         this.quantity = requestDto.getQuantity();
     }
