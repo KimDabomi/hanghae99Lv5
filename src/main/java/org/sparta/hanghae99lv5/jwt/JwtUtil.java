@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.sparta.hanghae99lv5.entity.UserAuthEnum;
+import org.sparta.hanghae99lv5.security.UserAuthEnum;
 import org.sparta.hanghae99lv5.message.ErrorMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;

@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.sparta.hanghae99lv5.dto.LoginRequestDto;
-import org.sparta.hanghae99lv5.entity.UserAuthEnum;
+import org.sparta.hanghae99lv5.security.UserAuthEnum;
 import org.sparta.hanghae99lv5.message.ErrorMessage;
 import org.sparta.hanghae99lv5.message.SuccessMessage;
 import org.sparta.hanghae99lv5.security.UserDetailsImpl;
