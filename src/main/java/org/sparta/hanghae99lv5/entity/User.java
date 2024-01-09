@@ -35,10 +35,6 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private UserAuthEnum auth;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
-
     public User(String email, String password, String gender, String phone, String address, UserAuthEnum auth) {
         this.email = email;
         this.password = password;

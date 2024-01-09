@@ -6,6 +6,7 @@ import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.User;
 import org.sparta.hanghae99lv5.entity.UserAuthEnum;
 import org.sparta.hanghae99lv5.message.ErrorMessage;
+import org.sparta.hanghae99lv5.repository.CartRepository;
 import org.sparta.hanghae99lv5.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class UserService {
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,15}$";
     private final UserRepository userRepository;
+    private final CartRepository cartRepository;
     private final PasswordEncoder passwordEncoder;
 
     public void createUser(UserRequestDto requestDto) {
@@ -35,6 +37,9 @@ public class UserService {
         String encodedPassword = passwordEncoder.encode(password);
         User user = new User(email, encodedPassword, gender, phone, address, auth);
         userRepository.save(user);
+
+        Cart cart = new Cart(user);
+        cartRepository.save(cart);
     }
 
     private void checkEmailAndPwPattern(String email, String password) {

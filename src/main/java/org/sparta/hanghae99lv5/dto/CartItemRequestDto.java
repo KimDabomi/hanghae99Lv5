@@ -9,5 +9,4 @@ public class CartItemRequestDto {
     private Cart cart;
     private Goods goods;
     private int quantity;
-
 }
