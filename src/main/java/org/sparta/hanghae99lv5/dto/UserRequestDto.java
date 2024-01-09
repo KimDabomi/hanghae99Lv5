@@ -1,6 +1,7 @@
 package org.sparta.hanghae99lv5.dto;
 
 import lombok.Getter;
+import org.sparta.hanghae99lv5.entity.Cart;
 
 @Getter
 public class UserRequestDto {

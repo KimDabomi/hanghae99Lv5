@@ -2,6 +2,7 @@ package org.sparta.hanghae99lv5.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sparta.hanghae99lv5.dto.UserRequestDto;
+import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.User;
 import org.sparta.hanghae99lv5.entity.UserAuthEnum;
 import org.sparta.hanghae99lv5.message.ErrorMessage;

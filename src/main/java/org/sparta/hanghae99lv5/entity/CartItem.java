@@ -1,0 +1,32 @@
+package org.sparta.hanghae99lv5.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.sparta.hanghae99lv5.dto.CartItemRequestDto;
+
+@Entity
+@Getter
+@NoArgsConstructor
+public class CartItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "goods_id")
+    private Goods goods;
+
+    @Column(name = "quantity")
+    private int quantity;
+
+    public CartItem(CartItemRequestDto requestDto) {
+        this.cart = getCart();
+        this.goods = getGoods();
+        this.quantity = getQuantity();
+    }
+}
