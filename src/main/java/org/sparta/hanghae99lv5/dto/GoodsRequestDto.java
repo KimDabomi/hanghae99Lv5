@@ -6,7 +6,7 @@ import lombok.Getter;
 public class GoodsRequestDto {
     private String name;
     private String price;
-    private String count;
+    private String stock;
     private String intro;
     private String category;
 }

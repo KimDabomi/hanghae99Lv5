@@ -20,7 +20,7 @@ public class Goods {
     private String price;
 
     @Column(nullable = false)
-    private String count;
+    private String stock;
 
     @Column(nullable = false)
     private String intro;
@@ -31,7 +31,7 @@ public class Goods {
     public Goods(GoodsRequestDto requestDto) {
         this.name = requestDto.getName();
         this.price = requestDto.getPrice();
-        this.count = requestDto.getCount();
+        this.stock = requestDto.getStock();
         this.intro = requestDto.getIntro();
         this.category = requestDto.getCategory();
     }
