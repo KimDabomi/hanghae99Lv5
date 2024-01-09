@@ -6,18 +6,18 @@ import org.sparta.hanghae99lv5.entity.Goods;
 
 @Getter
 public class GoodsResponseDto {
-    private Long id;
-    private String name;
-    private String price;
-    private String stock;
-    private String intro;
-    private String category;
+    private final Long id;
+    private final String name;
+    private final String price;
+    private final String stock;
+    private final String intro;
+    private final String category;
 
     public GoodsResponseDto(Goods goods) {
         this.id = goods.getId();
         this.name = goods.getName();
         this.price = goods.getPrice();
-        this.stock = goods.getCount();
+        this.stock = goods.getStock();
         this.intro = goods.getIntro();
         this.category = goods.getCategory();
     }
