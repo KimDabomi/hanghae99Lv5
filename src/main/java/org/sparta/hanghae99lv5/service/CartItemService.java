@@ -9,8 +9,12 @@ import org.sparta.hanghae99lv5.message.ErrorMessage;
 import org.sparta.hanghae99lv5.repository.CartItemRepository;
 import org.sparta.hanghae99lv5.repository.CartRepository;
 import org.sparta.hanghae99lv5.repository.GoodsRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,9 +38,15 @@ public class CartItemService {
         cartItem.update(requestDto);
     }
 
-    private CartItem findCartItem(Long id) {
-        return cartItemRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException(ErrorMessage.EXIST_GOODS_ERROR_MESSAGE.getErrorMessage())
+    @Transactional
+    public void deleteCartItem(Long cartItemId) {
+        CartItem cartItem = findCartItem(cartItemId);
+        cartItemRepository.delete(cartItem);
+    }
+
+    private CartItem findCartItem(Long cartItemId) {
+        return cartItemRepository.findById(cartItemId).orElseThrow(() ->
+                new IllegalArgumentException(ErrorMessage.EXIST_CART_ITEM_ERROR_MESSAGE.getErrorMessage())
         );
     }
 }

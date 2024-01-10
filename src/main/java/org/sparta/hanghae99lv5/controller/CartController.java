@@ -24,6 +24,12 @@ public class CartController {
     @PutMapping("/users/cart-items/{cartItemId}")
     public ResponseEntity<String> updateCartItem(@RequestBody CartItemRequestDto requestDto, @PathVariable Long cartItemId) {
         cartItemService.updateCartItem(requestDto, cartItemId);
-        return new ResponseEntity<>(SuccessMessage.INSERT_CART_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
+        return new ResponseEntity<>(SuccessMessage.UPDATE_CART_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/users/cart-items/{cartItemId}")
+    public ResponseEntity<String> deleteCartItem(@PathVariable Long cartItemId) {
+        cartItemService.deleteCartItem(cartItemId);
+        return new ResponseEntity<>(SuccessMessage.DELETE_CART_ITEM_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
     }
 }
