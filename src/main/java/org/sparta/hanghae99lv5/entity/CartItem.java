@@ -29,4 +29,8 @@ public class CartItem {
         this.goods = goods;
         this.quantity = requestDto.getQuantity();
     }
+
+    public void update(CartItemRequestDto requestDto) {
+        this.quantity = requestDto.getQuantity();
+    }
 }
