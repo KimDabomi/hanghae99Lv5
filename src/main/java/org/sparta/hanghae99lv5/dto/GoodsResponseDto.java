@@ -1,7 +1,6 @@
 package org.sparta.hanghae99lv5.dto;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.sparta.hanghae99lv5.entity.Goods;
 
 @Getter

@@ -31,7 +31,6 @@ public class Goods {
     @Column
     private String url;
 
-
     public Goods(GoodsRequestDto requestDto, String url) {
         this.name = requestDto.getName();
         this.price = requestDto.getPrice();

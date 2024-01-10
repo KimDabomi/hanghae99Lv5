@@ -1,4 +1,4 @@
-package org.sparta.hanghae99lv5.entity;
+package org.sparta.hanghae99lv5.security;
 
 public enum UserAuthEnum {
     USER(Authority.USER),

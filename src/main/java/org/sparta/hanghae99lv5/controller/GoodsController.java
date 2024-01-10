@@ -5,7 +5,6 @@ import org.sparta.hanghae99lv5.dto.GoodsResponseDto;
 import org.sparta.hanghae99lv5.entity.Goods;
 import org.sparta.hanghae99lv5.message.SuccessMessage;
 import org.sparta.hanghae99lv5.service.GoodsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

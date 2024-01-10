@@ -2,7 +2,6 @@ package org.sparta.hanghae99lv5.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sparta.hanghae99lv5.dto.CartItemRequestDto;
-import org.sparta.hanghae99lv5.dto.CartItemResponseDto;
 import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.CartItem;
 import org.sparta.hanghae99lv5.entity.Goods;
@@ -12,8 +11,6 @@ import org.sparta.hanghae99lv5.repository.CartRepository;
 import org.sparta.hanghae99lv5.repository.GoodsRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
