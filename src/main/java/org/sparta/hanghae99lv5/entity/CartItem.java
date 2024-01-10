@@ -25,13 +25,13 @@ public class CartItem {
     private int quantity;
 
     @Column(name = "item_total_price")
-    private Integer totalPrice;
+    private Integer itemTotalPrice;
 
     public CartItem(CartItemRequestDto requestDto, Goods goods, Cart cart) {
         this.cart = cart;
         this.goods = goods;
         this.quantity = requestDto.getQuantity();
-        this.totalPrice = goods.getPrice() * requestDto.getQuantity();
+        this.itemTotalPrice = goods.getPrice() * requestDto.getQuantity();
     }
 
     public void update(CartItemRequestDto requestDto) {
