@@ -14,7 +14,7 @@ public class CartResponseDto {
     public CartResponseDto(List<CartItem> cartItem) {
         this.cartItem = cartItem;
         this.totalPrice = cartItem.stream()
-                .mapToInt(CartItem::getTotalPrice)
+                .mapToInt(CartItem::getItemTotalPrice)
                 .sum();
     }
 }
