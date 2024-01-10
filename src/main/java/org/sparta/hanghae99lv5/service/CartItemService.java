@@ -19,11 +19,24 @@ public class CartItemService {
     private final CartItemRepository cartItemRepository;
     private final GoodsRepository goodsRepository;
     private final CartRepository cartRepository;
+
     @Transactional
     public void createCartItem(CartItemRequestDto requestDto, Long goodsId, Long cartsId) {
         Goods goods = goodsRepository.findById(goodsId).orElseThrow(() -> new IllegalArgumentException(ErrorMessage.EXIST_GOODS_ERROR_MESSAGE.getErrorMessage()));
         Cart cart = cartRepository.findById(cartsId).orElseThrow(() -> new IllegalArgumentException(ErrorMessage.EXIST_CART_ERROR_MESSAGE.getErrorMessage()));
         CartItem cartItem = new CartItem(requestDto,goods,cart);
         cartItemRepository.save(cartItem);
+    }
+
+    @Transactional
+    public void updateCartItem(CartItemRequestDto requestDto, Long cartItemId) {
+        CartItem cartItem = findCartItem(cartItemId);
+        cartItem.update(requestDto);
+    }
+
+    private CartItem findCartItem(Long id) {
+        return cartItemRepository.findById(id).orElseThrow(() ->
+                new IllegalArgumentException(ErrorMessage.EXIST_GOODS_ERROR_MESSAGE.getErrorMessage())
+        );
     }
 }

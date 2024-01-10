@@ -21,4 +21,9 @@ public class CartController {
         return new ResponseEntity<>(SuccessMessage.INSERT_CART_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
     }
 
+    @PutMapping("/users/cart-items/{cartItemId}")
+    public ResponseEntity<String> updateCartItem(@RequestBody CartItemRequestDto requestDto, @PathVariable Long cartItemId) {
+        cartItemService.updateCartItem(requestDto, cartItemId);
+        return new ResponseEntity<>(SuccessMessage.INSERT_CART_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
+    }
 }
