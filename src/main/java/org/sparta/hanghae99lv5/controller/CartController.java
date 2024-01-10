@@ -44,5 +44,4 @@ public class CartController {
         cartItemService.deleteCartItem(cartItemId);
         return new ResponseEntity<>(SuccessMessage.DELETE_CART_ITEM_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
     }
-
 }

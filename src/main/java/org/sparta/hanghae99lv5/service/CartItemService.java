@@ -10,8 +10,6 @@ import org.sparta.hanghae99lv5.message.ErrorMessage;
 import org.sparta.hanghae99lv5.repository.CartItemRepository;
 import org.sparta.hanghae99lv5.repository.CartRepository;
 import org.sparta.hanghae99lv5.repository.GoodsRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +34,7 @@ public class CartItemService {
     public List<CartItemResponseDto> getCartItemListByCartId(Long cartId) {
         List<CartItem> cartItemList = cartItemRepository.findByCartId(cartId);
         return cartItemList.stream().map(CartItemResponseDto::new).toList();
+    }
 
     @Transactional
     public void updateCartItem(CartItemRequestDto requestDto, Long cartItemId) {
