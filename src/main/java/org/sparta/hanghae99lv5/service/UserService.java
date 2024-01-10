@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.sparta.hanghae99lv5.dto.UserRequestDto;
 import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.User;
-import org.sparta.hanghae99lv5.security.UserAuthEnum;
+import org.sparta.hanghae99lv5.entity.UserAuthEnum;
 import org.sparta.hanghae99lv5.message.ErrorMessage;
 import org.sparta.hanghae99lv5.repository.CartRepository;
 import org.sparta.hanghae99lv5.repository.UserRepository;

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.sparta.hanghae99lv5.security.UserAuthEnum;
 
 @Entity
 @Getter

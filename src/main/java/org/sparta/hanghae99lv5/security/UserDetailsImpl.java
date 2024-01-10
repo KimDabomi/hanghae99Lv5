@@ -2,6 +2,7 @@ package org.sparta.hanghae99lv5.security;
 
 import lombok.Getter;
 import org.sparta.hanghae99lv5.entity.User;
+import org.sparta.hanghae99lv5.entity.UserAuthEnum;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
