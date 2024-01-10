@@ -33,8 +33,8 @@ public class GoodsController {
     }
 
     @GetMapping("/users/goods/{goodsId}")
-    public Goods getGoods(@PathVariable Long goodsId, @RequestBody GoodsRequestDto requestDto) {
-        return goodsService.getGoods(goodsId, requestDto);
+    public Goods getGoods(@PathVariable Long goodsId) {
+        return goodsService.getGoods(goodsId);
     }
 
     @GetMapping("/users/goods")

@@ -29,7 +29,7 @@ public class GoodsService {
         new GoodsResponseDto(saveGoods);
     }
 
-    public Goods getGoods(Long id, GoodsRequestDto requestDto) {
+    public Goods getGoods(Long id) {
         return findGoods(id);
     }
 
