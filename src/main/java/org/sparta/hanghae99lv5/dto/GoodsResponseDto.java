@@ -12,6 +12,7 @@ public class GoodsResponseDto {
     private final String stock;
     private final String intro;
     private final String category;
+    private final String url;
 
     public GoodsResponseDto(Goods goods) {
         this.id = goods.getId();
@@ -20,5 +21,6 @@ public class GoodsResponseDto {
         this.stock = goods.getStock();
         this.intro = goods.getIntro();
         this.category = goods.getCategory();
+        this.url = goods.getUrl();
     }
 }

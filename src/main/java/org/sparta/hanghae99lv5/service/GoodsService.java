@@ -11,16 +11,20 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
 public class GoodsService {
 
     private final GoodsRepository goodsRepository;
+    private final ImageS3Service imageS3Service;
 
     @Transactional
-    public void createGoods(GoodsRequestDto requestDto) {
-        Goods goods = new Goods(requestDto);
+    public void createGoods(GoodsRequestDto requestDto, MultipartFile imageFile) throws IOException {
+        Goods goods = new Goods(requestDto, imageS3Service.saveFile(imageFile));
         Goods saveGoods = goodsRepository.save(goods);
         new GoodsResponseDto(saveGoods);
     }

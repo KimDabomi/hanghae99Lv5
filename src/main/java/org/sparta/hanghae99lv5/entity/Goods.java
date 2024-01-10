@@ -28,11 +28,16 @@ public class Goods {
     @Column(nullable = false)
     private String category;
 
-    public Goods(GoodsRequestDto requestDto) {
+    @Column
+    private String url;
+
+
+    public Goods(GoodsRequestDto requestDto, String url) {
         this.name = requestDto.getName();
         this.price = requestDto.getPrice();
         this.stock = requestDto.getStock();
         this.intro = requestDto.getIntro();
         this.category = requestDto.getCategory();
+        this.url = url;
     }
 }
