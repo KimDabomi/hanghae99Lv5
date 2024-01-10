@@ -8,7 +8,7 @@ import org.sparta.hanghae99lv5.entity.Goods;
 public class GoodsResponseDto {
     private final Long id;
     private final String name;
-    private final String price;
+    private final int price;
     private final String stock;
     private final String intro;
     private final String category;

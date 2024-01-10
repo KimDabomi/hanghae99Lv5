@@ -17,7 +17,7 @@ public class Goods {
     private String name;
 
     @Column(nullable = false)
-    private String price;
+    private int price;
 
     @Column(nullable = false)
     private String stock;

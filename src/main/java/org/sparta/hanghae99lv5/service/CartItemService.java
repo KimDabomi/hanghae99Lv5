@@ -2,6 +2,7 @@ package org.sparta.hanghae99lv5.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sparta.hanghae99lv5.dto.CartItemRequestDto;
+import org.sparta.hanghae99lv5.dto.CartItemResponseDto;
 import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.CartItem;
 import org.sparta.hanghae99lv5.entity.Goods;
@@ -31,6 +32,10 @@ public class CartItemService {
         CartItem cartItem = new CartItem(requestDto,goods,cart);
         cartItemRepository.save(cartItem);
     }
+
+    public List<CartItemResponseDto> getCartItemListByCartId(Long cartId) {
+        List<CartItem> cartItemList = cartItemRepository.findByCartId(cartId);
+        return cartItemList.stream().map(CartItemResponseDto::new).toList();
 
     @Transactional
     public void updateCartItem(CartItemRequestDto requestDto, Long cartItemId) {
