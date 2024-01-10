@@ -31,15 +31,11 @@ public class CartItemService {
         cartItemRepository.save(cartItem);
     }
 
-    public List<CartItemResponseDto> getCartItemListByCartId(Long cartId) {
-        List<CartItem> cartItemList = cartItemRepository.findByCartId(cartId);
-        return cartItemList.stream().map(CartItemResponseDto::new).toList();
-    }
-
     @Transactional
     public void updateCartItem(CartItemRequestDto requestDto, Long cartItemId) {
         CartItem cartItem = findCartItem(cartItemId);
-        cartItem.update(requestDto);
+        cartItem.updateQuantity(requestDto);
+        cartItem.updateItemTotalPrice();
     }
 
     @Transactional

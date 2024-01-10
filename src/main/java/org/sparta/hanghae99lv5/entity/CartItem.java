@@ -34,7 +34,11 @@ public class CartItem {
         this.itemTotalPrice = goods.getPrice() * requestDto.getQuantity();
     }
 
-    public void update(CartItemRequestDto requestDto) {
+    public void updateQuantity(CartItemRequestDto requestDto) {
         this.quantity = requestDto.getQuantity();
+    }
+
+    public void updateItemTotalPrice() {
+        this.itemTotalPrice = this.goods.getPrice() * this.quantity;
     }
 }
