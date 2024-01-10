@@ -17,7 +17,7 @@ public class Cart {
     private User user;
 
     @Column(name = "total_price")
-    private int totalPrice;
+    private Integer totalPrice;
 
     public Cart(User user) {
         this.user = user;

@@ -29,7 +29,7 @@ public class CartController {
     }
 
     @GetMapping("/users/carts/{cartId}")
-    public List<CartResponseDto> getCartItemListByCartId(@PathVariable Long cartId) {
+    public CartResponseDto getCartItemListByCartId(@PathVariable Long cartId) {
         return cartService.getCartItemListByCartId(cartId);
     }
 

@@ -24,10 +24,14 @@ public class CartItem {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "item_total_price")
+    private Integer totalPrice;
+
     public CartItem(CartItemRequestDto requestDto, Goods goods, Cart cart) {
         this.cart = cart;
         this.goods = goods;
         this.quantity = requestDto.getQuantity();
+        this.totalPrice = goods.getPrice() * requestDto.getQuantity();
     }
 
     public void update(CartItemRequestDto requestDto) {

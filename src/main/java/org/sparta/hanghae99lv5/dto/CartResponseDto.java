@@ -1,15 +1,20 @@
 package org.sparta.hanghae99lv5.dto;
 
 import lombok.Getter;
+import org.sparta.hanghae99lv5.entity.Cart;
 import org.sparta.hanghae99lv5.entity.CartItem;
+
+import java.util.List;
 
 @Getter
 public class CartResponseDto {
-    private final CartItem cartItem;
+    private final List<CartItem> cartItem;
     private int totalPrice;
 
-    public CartResponseDto(CartItem cartItem) {
+    public CartResponseDto(List<CartItem> cartItem) {
         this.cartItem = cartItem;
-        this.totalPrice += cartItem.getGoods().getPrice() * cartItem.getQuantity();
+        this.totalPrice = cartItem.stream()
+                .mapToInt(CartItem::getTotalPrice)
+                .sum();
     }
 }
