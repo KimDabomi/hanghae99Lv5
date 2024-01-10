@@ -11,17 +11,24 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
 public class GoodsController {
-    @Autowired
-    private GoodsService goodsService;
+
+    private final GoodsService goodsService;
+
+    public GoodsController(GoodsService goodsService) {
+        this.goodsService = goodsService;
+    }
 
     @PostMapping("/admins/goods")
-    public ResponseEntity<String> createUser(@RequestBody GoodsRequestDto requestDto) {
+    public ResponseEntity<String> createGoods(GoodsRequestDto requestDto, @RequestPart MultipartFile imageFile) {
         return handleRequest(() -> {
-            goodsService.createGoods(requestDto);
+            goodsService.createGoods(requestDto,imageFile);
             return new ResponseEntity<>(SuccessMessage.CREATE_GOODS_SUCCESS_MESSAGE.getSuccessMessage(), HttpStatus.CREATED);
         });
     }
@@ -41,11 +48,13 @@ public class GoodsController {
             return handler.handle();
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @FunctionalInterface
     private interface RequestHandler {
-        ResponseEntity<String> handle();
+        ResponseEntity<String> handle() throws IOException;
     }
 }
