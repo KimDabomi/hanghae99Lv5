@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class GoodsRequestDto {
     private String name;
-    private String price;
+    private int price;
     private String stock;
     private String intro;
     private String category;

@@ -16,6 +16,9 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "total_price")
+    private int totalPrice;
+
     public Cart(User user) {
         this.user = user;
     }
